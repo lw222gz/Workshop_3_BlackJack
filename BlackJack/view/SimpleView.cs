@@ -51,6 +51,7 @@ namespace BlackJack.view
         private void DisplayHand(String a_name, IEnumerable<model.Card> a_hand, int a_score)
         {
             System.Console.WriteLine("{0} Has: ", a_name);
+            
             foreach (model.Card c in a_hand)
             {
                 DisplayCard(c);

@@ -3,3 +3,8 @@ P:\1DV607- Objekt ananlys och design med UML\Workshop_3_blackjack\BlackJack\bin\
 P:\1DV607- Objekt ananlys och design med UML\Workshop_3_blackjack\BlackJack\obj\Debug\BlackJack.csprojResolveAssemblyReference.cache
 P:\1DV607- Objekt ananlys och design med UML\Workshop_3_blackjack\BlackJack\obj\Debug\BlackJack.exe
 P:\1DV607- Objekt ananlys och design med UML\Workshop_3_blackjack\BlackJack\obj\Debug\BlackJack.pdb
+C:\Users\ma223ku\Desktop\UML Sista workshop\BlackJack\obj\Debug\BlackJack.exe
+C:\Users\ma223ku\Desktop\UML Sista workshop\BlackJack\obj\Debug\BlackJack.pdb
+C:\Users\ma223ku\Desktop\UML Sista workshop\BlackJack\bin\Debug\BlackJack.exe
+C:\Users\ma223ku\Desktop\UML Sista workshop\BlackJack\bin\Debug\BlackJack.pdb
+C:\Users\ma223ku\Desktop\UML Sista workshop\BlackJack\obj\Debug\BlackJack.csprojResolveAssemblyReference.cache

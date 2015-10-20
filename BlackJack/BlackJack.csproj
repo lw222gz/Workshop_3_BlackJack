@@ -72,12 +72,15 @@
     <Compile Include="model\Dealer.cs" />
     <Compile Include="model\Deck.cs" />
     <Compile Include="model\Game.cs" />
+    <Compile Include="model\IGameobserver.cs" />
     <Compile Include="model\Player.cs" />
     <Compile Include="model\rules\AmericanNewGameStrategy.cs" />
     <Compile Include="model\rules\BasicHitStrategy.cs" />
+    <Compile Include="model\rules\Highestcardrule.cs" />
     <Compile Include="model\rules\IHitStrategy.cs" />
     <Compile Include="model\rules\InternationalNewGameStrategy.cs" />
     <Compile Include="model\rules\INewGameStrategy.cs" />
+    <Compile Include="model\rules\ItieStrategy.cs" />
     <Compile Include="model\rules\RulesFactory.cs" />
     <Compile Include="model\rules\Soft17RuleStratergy.cs" />
     <Compile Include="Program.cs" />

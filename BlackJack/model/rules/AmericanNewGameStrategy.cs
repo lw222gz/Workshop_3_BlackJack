@@ -23,7 +23,6 @@ namespace BlackJack.model.rules
                     {
                         hiddenCard = false;
                     }
-
                     a_dealer.DealPlayerCard(hiddenCard, a_dealer);
                 }
             }

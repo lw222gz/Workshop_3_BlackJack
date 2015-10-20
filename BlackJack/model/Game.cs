@@ -10,10 +10,18 @@ namespace BlackJack.model
         private model.Dealer m_dealer;
         private model.Player m_player;
 
+        
+
         public Game()
         {
+           
             m_dealer = new Dealer(new rules.RulesFactory());
             m_player = new Player();
+        }
+
+        public void AddSub(IGameobserver sub)
+        {            
+            m_dealer.AddSub(sub);
         }
 
         public bool IsGameOver()

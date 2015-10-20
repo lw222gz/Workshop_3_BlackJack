@@ -21,5 +21,10 @@ namespace BlackJack.model.rules
         {
             return new Soft17RuleStratergy();
         }
+
+        public ItieStrategy GetTieRule() 
+        {
+            return new Highestcardrule();
+        }
     }
 }

@@ -12,15 +12,24 @@ namespace BlackJack.model
 
         private rules.INewGameStrategy m_newGameRule;
         private rules.IHitStrategy m_hitRule;
+        private rules.ItieStrategy m_tieRule;
 
+        private List<IGameobserver> m_observer;
+        
 
-        private Card highestCard;
-
-
+        
         public Dealer(rules.RulesFactory a_rulesFactory)
         {
+            m_observer = new List<IGameobserver>();
             m_newGameRule = a_rulesFactory.GetNewGameRule();
             m_hitRule = a_rulesFactory.GetSoft17Rule();
+            //This is our rule. None shall disobey!
+            m_tieRule = a_rulesFactory.GetTieRule();
+        }
+
+        public void AddSub(IGameobserver sub)
+        {
+            m_observer.Add(sub);
         }
 
         public bool NewGame(Player a_player)
@@ -76,11 +85,11 @@ namespace BlackJack.model
             }
             else if (a_player.CalcScore() == CalcScore())
             {
-                //This is our own rule:
-                //When the player and dealer ends up equal we made it so that the highest card 
-                //on their hand decides the winner. If both have the same card value, let's say both got Ace as
-                //highest then the card color decides the winner in order: spade > heart > diamon > club
-                return HighestCard(a_player);
+                //    //This is our own rule:
+                //    //When the player and dealer ends up equal we made it so that the highest card 
+                //    //on their hand decides the winner. If both have the same card value, let's say both got Ace as
+                //    //highest then the card color decides the winner in order: spade > heart > diamon > club
+                return m_tieRule.CalcWinner(a_player, this);
             }
             return  CalcScore() >= a_player.CalcScore();
         }
@@ -94,102 +103,15 @@ namespace BlackJack.model
             return false;
         }
 
-        public bool HighestCard(Player a_player)
-        {
-            int[] cardScores = getCardScoreArray();
-            IEnumerable<Card> pHand = a_player.GetHand();
-            IEnumerable<Card> dHand = GetHand();
-
-
-            Card PlayerHighest = getHighestCardInHand(pHand);
-            Card DealerHighest = getHighestCardInHand(dHand);
-
-            if (cardScores[(int)PlayerHighest.GetValue()] == cardScores[(int)DealerHighest.GetValue()])
-            {
-                //if the second parameter is higher value then false is returned, aka player win.
-                return isHigherCardColorValue(DealerHighest.GetColor(), PlayerHighest.GetColor());
-            }
-
-            if (cardScores[(int)PlayerHighest.GetValue()] > cardScores[(int)DealerHighest.GetValue()])
-            {
-                //player won
-                return false;
-            }
-            else
-            {
-                //dealer won.
-                return true;
-            } 
-        }
-
-        public Card getHighestCardInHand(IEnumerable<Card> hand){
-            int[] cardScores = getCardScoreArray();
-
-            int Highest = 0;
-            highestCard = null;
-            
-            foreach (Card c in hand)
-            {
-                if (cardScores[(int)c.GetValue()] >= Highest)
-                {
-                    Highest = cardScores[(int)c.GetValue()];
-                    if (highestCard == null)
-                    {
-                        highestCard = c;
-                    }
-                    else if (cardScores[(int)c.GetValue()] > cardScores[(int)highestCard.GetValue()])
-                    {
-                        highestCard = c;
-                    }
-                    else if (isHigherCardColorValue(c.GetColor(), highestCard.GetColor()))
-                    {
-                        highestCard = c;
-                    }
-                    
-                }
-            }
-            return highestCard;
-        }
-
-        //Returns @boolean to check if argument card color is higher than 2nd argument color.
-        public bool isHigherCardColorValue(Card.Color FirstColor, Card.Color SecondColor)
-        {           
-            switch (SecondColor)
-            {
-                case Card.Color.Spades:
-                        //spades is highest so the new color cant be higher.
-                        return false;
-                        
-
-                case Card.Color.Hearts:
-                        //if NewColor is spades then it's higher, no other colors can be higher tho.
-                        if (FirstColor == Card.Color.Spades)
-                        {
-                            return true;
-                        }
-                        break;
-
-                case Card.Color.Diamonds:
-                        if (FirstColor == Card.Color.Spades || FirstColor == Card.Color.Hearts)
-                        {
-                            return true;
-                        }
-                        break;
-
-                case Card.Color.Clubs:
-                        //if highest is clubs then the new color is automaticly higher.
-                        return true;
-                        
-            }
-
-            return false;
-        }
-
         public void DealPlayerCard(bool hiddenCard, Player player)
         {
             Card c = m_deck.GetCard();
             c.Show(hiddenCard);
             player.DealCard(c);
+            foreach (IGameobserver o in m_observer)
+            {
+                o.Playerhasacard(c);
+            }
         }
     }
 }
