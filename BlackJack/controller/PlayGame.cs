@@ -13,15 +13,15 @@ namespace BlackJack.controller
         {
             a_game = a_Game;
             a_view = a_View;
-            a_game.AddSub(this);
-
+            a_game.AddSub(this);           
         }
         public bool Play()
-        {           
+        {
             a_view.DisplayWelcomeMessage();
-            
+
             a_view.DisplayDealerHand(a_game.GetDealerHand(), a_game.GetDealerScore());
             a_view.DisplayPlayerHand(a_game.GetPlayerHand(), a_game.GetPlayerScore());
+            
 
             if (a_game.IsGameOver())
             {
@@ -54,10 +54,13 @@ namespace BlackJack.controller
 
         public void Playerhasacard(model.Card c)
         {
+            a_view.DisplayWelcomeMessage();
+
+            a_view.DisplayDealerHand(a_game.GetDealerHand(), a_game.GetDealerScore());
+            a_view.DisplayPlayerHand(a_game.GetPlayerHand(), a_game.GetPlayerScore());
             System.Threading.Thread.Sleep(500);
+            
 
-
-            a_view.DisplayCard(c);
         }
     }
 }

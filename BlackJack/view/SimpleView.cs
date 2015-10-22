@@ -61,7 +61,7 @@ namespace BlackJack.view
         }
 
         public void DisplayGameOver(bool a_dealerIsWinner)
-        {
+        {            
             System.Console.Write("GameOver: ");
             if (a_dealerIsWinner)
             {
@@ -70,8 +70,7 @@ namespace BlackJack.view
             else
             {
                 System.Console.WriteLine("You Won!");
-            }
-            
+            }               
         }
     }
 }
