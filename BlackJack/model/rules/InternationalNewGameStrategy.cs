@@ -8,7 +8,7 @@ namespace BlackJack.model.rules
     class InternationalNewGameStrategy : INewGameStrategy
     {
 
-        public bool NewGame(Deck a_deck, Dealer a_dealer, Player a_player)
+        public bool NewGame(Dealer a_dealer, Player a_player)
         {
             bool hiddenCard = true;
             for (int i = 0; i < 4; i++)

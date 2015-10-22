@@ -101,6 +101,63 @@
               LastKnownName="BasicHitStrategy"
               LastKnownLocation="Package2_0950.uml" />
           </dependency>
+          <dependency
+            Id="f49a6b02-1f45-49c5-afd4-148733854ad9">
+            <classMoniker
+              Id="d5ff5076-b35d-49a8-b51a-8673f40c7f2f"
+              LastKnownName="Soft17RuleStratergy"
+              LastKnownLocation="Package2_0950.uml" />
+          </dependency>
+          <dependency
+            Id="61d254f3-bde9-4675-91cb-687cd6d41979">
+            <classMoniker
+              Id="4a660a62-035d-4ff2-87d1-e0d460aa85e7"
+              LastKnownName="Highestcardrule"
+              LastKnownLocation="Package2_0950.uml" />
+          </dependency>
+        </suppliersInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="07f506cd-c26e-42ab-b88f-5a6e5e4967bb"
+        name="ItieStrategy"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="d5ff5076-b35d-49a8-b51a-8673f40c7f2f"
+        name="Soft17RuleStratergy"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="a237b217-f77f-4cd1-99bc-9950db483a5b">
+            <interfaceMoniker
+              Id="550cd927-6beb-4715-ac7e-1afec083ec6b"
+              LastKnownName="IHitStrategy"
+              LastKnownLocation="Package2_0950.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="4a660a62-035d-4ff2-87d1-e0d460aa85e7"
+        name="Highestcardrule"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="f12de935-4b38-4042-93fa-8485420b58ba">
+            <interfaceMoniker
+              Id="07f506cd-c26e-42ab-b88f-5a6e5e4967bb"
+              LastKnownName="ItieStrategy"
+              LastKnownLocation="Package2_0950.uml" />
+          </interfaceRealization>
         </suppliersInternal>
       </class>
     </packageHasNamedElement>

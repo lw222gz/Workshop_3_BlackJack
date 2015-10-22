@@ -36,6 +36,14 @@
         LastKnownName="model"
         LastKnownLocation="Package1_0950.uml" />
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="a3a6e22b-51ed-4cf0-92c9-8ec6b1bcc2d8"
+        name="Class1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
   </packagedElements>
   <primitiveType
     Id="220a3521-e091-4221-bae9-3ef9018e845c"
