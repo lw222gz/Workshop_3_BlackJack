@@ -110,7 +110,7 @@ namespace BlackJack.model
             player.DealCard(c);
             foreach (IGameobserver o in m_observer)
             {
-                o.Playerhasacard(c);
+                o.Playerhasacard();
             }
         }
     }

@@ -52,7 +52,7 @@ namespace BlackJack.controller
         }
 
 
-        public void Playerhasacard(model.Card c)
+        public void Playerhasacard()
         {
             a_view.DisplayWelcomeMessage();
 
